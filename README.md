@@ -1,3 +1,6 @@
+# This is the repository that will be used for the service oriented application project for IFT 401 and 402. 
+# This repo is for group 35 consisting of Zac Siegel, Joe Cheng and Sanil Kumar.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
