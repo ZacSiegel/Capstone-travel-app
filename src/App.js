@@ -12,7 +12,7 @@ import Map from "./components/Map/Map";
 const App = () => {
 
     const [places, setPlaces] = useState([]);
-    const [coordinates, setCoordinates] = useState();
+    const [coordinates, setCoordinates] = useState({});
     const [bounds, setBounds] = useState(null);
 
     // this useEffect function get's the users current location from the browser, only runs once at the start of the app
@@ -23,14 +23,13 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        // console.log(coordinates, bounds); bounds.ne, bounds.sw
-        getPlacesData()
+        getPlacesData(bounds)
             .then((data) => {
-                // console.log(data);
                 setPlaces(data);
+                console.log(data);
             })
     }, [coordinates, bounds]);
-    console.log(bounds);
+    // console.log(bounds);
 
     return (
         <>
@@ -40,7 +39,7 @@ const App = () => {
                 {/* List of details about businesses will only take up 1/3 of the screen on large screens
                 It will take up the whole screen on small screens (12) */}
                 <Grid item xs={12} md={4}>
-                    <List />
+                    <List places = {places}/>
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <Map
