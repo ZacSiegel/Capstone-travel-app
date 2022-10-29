@@ -38,3 +38,17 @@ export const getPlacesData = async (type, bounds) => {
         console.log(error)
     }
 }
+
+// export const getWeatherData = async () => {
+//     try {
+//         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=hercules&units=imperial&appid=0d8e3f5586eddf8425d1eb952e4b5993`)
+//         const data = await response.json()
+//         return data
+        
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
+
+
+

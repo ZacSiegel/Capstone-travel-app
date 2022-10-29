@@ -18,5 +18,17 @@ Most of the UI for the main/home page has been developed.
 UI componentes on main page include:
 - Header with a a search bar at the top of the page. This will eventually be used for navigation to other pages also.
 - Sidebar on left side of the page that will display information for businesses
-- The map that users will be able to interact with located on the right side of the page. 
+- The map that users will be able to interact with located on the right side of the page. \
 
+09/25/22
+The functionality for the main page of the application is nearly completed. 
+- Users can view places of interest on the actual Google Map
+- More detailed cards for clicked locations are now shown on the lefthand side of the page
+- Filter function implemented to filter places by classification of restaurant, hotel or attraction.
+- Filter functionality based on ratings of places
+
+
+10/28/22
+Functionality updated for main page.
+- Autocomplete for search bar now works as intended for selected city
+- Began working on implementing a dark mode for the app. Completed dark mode for header and map. 

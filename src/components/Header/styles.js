@@ -27,6 +27,11 @@ export default makeStyles((theme) => ({
         padding: theme.spacing(1, 1, 1, 0), paddingLeft: `calc(1em + ${theme.spacing(4)}px)`, transition: theme.transitions.create('width'), width: '100%', [theme.breakpoints.up('md')]: { width: '20ch' },
     },
     toolbar: {
-        display: 'flex', justifyContent: 'space-between', background: '#28d3ab', color: "#000"
+        display: 'flex', justifyContent: 'space-between', background: '#0daf89', color: "#000"
+    },
+    darkToolbar: {
+        display: 'flex', justifyContent: 'space-between', background: '#2b323a', color: '#fff', boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.75)'
     },
 }));
+
+// background: '#272f38', color: '#fff'

@@ -16,7 +16,7 @@ const List = ({ places, childClicked, isLoading, type, setType, rating, setRatin
   const classes = useStyles();
 
   // this will print something more meaningful such as childClicked: 5
-  console.log({ childClicked });
+  // console.log({ childClicked });
   // Doing like this may just print value to the console with no context
   // console.log(childClicked);
 
@@ -30,8 +30,8 @@ const List = ({ places, childClicked, isLoading, type, setType, rating, setRatin
     setElRefs(refs);
   }, [type, places]);
 
-  console.log(type);
-  console.log(places);
+  // console.log(type);
+  // console.log(places);
 
   return (
     <div className={classes.container}>
