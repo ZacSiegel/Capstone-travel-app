@@ -1,0 +1,57 @@
+#root {
+  background-color: #fff;
+}
+
+/* body::-webkit-scrollbar {
+  width: 1rem;
+}
+body::-webkit-scrollbar-track {
+  background: #2c2c2c;
+} */
+/* body::-webkit-scrollbar-thumb {
+  background: #0daf89;
+} */
+
+.makeStyles-list-15 {
+  height: 70vh !important;
+  margin-top: 0.5rem !important;
+}
+
+.css-jsexje-MuiSwitch-thumb {
+  color: rgb(51, 224, 184) !important;
+
+}
+
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked
+  + .MuiSwitch-track {
+  background-color: #26c5a0 !important;
+}
+
+.filter-and-liked-places-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  .MuiBox-root-8 {
+    justify-content: space-between !important;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+.MuiGrid-spacing-xs-3 {
+  margin: 0 !important;
+}
+
+@media screen and (max-width: 968px) {
+  .MuiGrid-spacing-xs-3 {
+    margin: 0 !important;
+  }
+}
+
+.darkmode-background{
+    background-color: #2c2c2c !important;
+}
+
+.lightmode-background{
+    background-color: #fff !important;
+}

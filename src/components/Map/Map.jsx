@@ -7,7 +7,7 @@ import Rating from "@material-ui/lab/Rating";
 import useStyles from "./styles";
 
 
-const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, mapStyle }) => {
+const Map = ({ darkMode, setCoordinates, setBounds, coordinates, places, setChildClicked, mapStyle }) => {
 	const classes = useStyles();
 	// switches to mobile view when viewport is <= 600px
 	const isDesktop = useMediaQuery("(min-width:600px)");
@@ -38,7 +38,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, 
 							{!isDesktop ? (
 								<LocationOnOutlinedIcon color="primary" fontSize="large" />
 							) : (
-								<Paper elevation={3} className={classes.paper}>
+								<Paper elevation={3} className={darkMode ? classes.darkPaper : classes.paper}>
 									<Typography
 										className={classes.typography}
 										variant="subtitle2"

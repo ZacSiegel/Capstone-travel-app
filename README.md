@@ -32,3 +32,9 @@ The functionality for the main page of the application is nearly completed.
 Functionality updated for main page.
 - Autocomplete for search bar now works as intended for selected city
 - Began working on implementing a dark mode for the app. Completed dark mode for header and map. 
+
+
+11/25/22
+Functionality updated for main page
+- Dark mode completed for app. Users can toggle between dark mode and light mode using a switch in the header
+- Implemented like functionality for places. When a user likes a restaurant, hotel or attraction, that place gets saved in local storage within the browser. The user can then view saved places using a switch labeled "liked places". 

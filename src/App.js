@@ -15,16 +15,59 @@ import mapDarkModeStyles from "./mapDarkModeStyles";
 const App = () => {
 	const [places, setPlaces] = useState([]);
 	const [filteredPlaces, setFilteredPlaces] = useState([]);
-	const [weatherData, setWeatherData] = useState([]);
+	// const [weatherData, setWeatherData] = useState([]);
 	const [coordinates, setCoordinates] = useState({});
 	const [bounds, setBounds] = useState(null);
+
+	// dark mode styles
+	const [darkMode, setDarkMode] = useState(false)
 	const [mapStyle, setMapStyle] = useState(mapLightModeStyles);
 
 	const [childClicked, setChildClicked] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 
 	const [type, setType] = useState("restaurants");
-	const [rating, setRating] = useState("");
+	const [rating, setRating] = useState("0");
+
+
+	const [likedPlaces, setLikedPlaces] = useState(() => {
+		const likedPlaces = JSON.parse(localStorage.getItem('likedPlaces'));
+		return likedPlaces ? likedPlaces : [];
+	});
+	
+
+
+	useEffect(() => {
+		// console.log(likedPlaces)
+		saveLikedPlaces(likedPlaces)
+	}, [likedPlaces])
+
+	const saveLikedPlaces = (likedPlaces) => {
+		localStorage.setItem('likedPlaces', JSON.stringify(likedPlaces))
+	}
+
+	// const getLikedPlaces = () => {
+	// 	if (localStorage.getItem('likedPlaces')) {
+	// 		setLikedPlaces(JSON.parse(localStorage.getItem('likedPlaces')))
+	// 	}
+	// }
+
+	// useEffect(() => {
+	// 	getLikedPlaces()
+	// }, [])
+	
+
+
+	// useEffect for toggling dark mode
+	useEffect(() => {
+		if (darkMode) {
+			setMapStyle(mapDarkModeStyles)
+		} else {
+			setMapStyle(mapLightModeStyles)
+		}
+	}, [darkMode])
+
+
 
 	// this useEffect function get's the users current location from the browser, only runs once at the start of the app
 	useEffect(() => {
@@ -66,12 +109,15 @@ const App = () => {
 	return (
 		<>
 			<CssBaseline />
-			<Header mapStyle={mapStyle} setMapStyle={setMapStyle} setCoordinates={setCoordinates} />
-			<Grid container spacing={3} style={{ width: "100%" }}>
+			<Header darkMode={darkMode} setDarkMode={setDarkMode} mapStyle={mapStyle} setMapStyle={setMapStyle} setCoordinates={setCoordinates} />
+			<Grid className={darkMode ? 'darkmode-background' : 'lightmode-background'}container spacing={3} style={{ width: "100%" }}>
 				{/* List of details about businesses will only take up 1/3 of the screen on large screens
                 It will take up the whole screen on small screens (12) */}
 				<Grid item xs={12} md={4}>
 					<List
+						likedPlaces={likedPlaces}
+						setLikedPlaces={setLikedPlaces}
+						darkMode={darkMode}
 						places={filteredPlaces.length ? filteredPlaces : places}
 						childClicked={childClicked}
 						isLoading={isLoading}
@@ -83,12 +129,13 @@ const App = () => {
 				</Grid>
 				<Grid item xs={12} md={8}>
 					<Map
+						darkMode={darkMode}
 						setCoordinates={setCoordinates}
 						setBounds={setBounds}
 						coordinates={coordinates}
 						places={filteredPlaces.length ? filteredPlaces : places}
 						setChildClicked={setChildClicked}
-						weatherData={weatherData}
+						// weatherData={weatherData}
 						mapStyle={mapStyle}
 					/>
 				</Grid>
