@@ -6,8 +6,11 @@ This repo is for group 35 consisting of Zac Siegel, Joe Cheng and Sanil Kumar.
 This repository is for a travel advisor capstone project.
 The goal of this project is to create a web app that users can search for locations on and view the businesses available in that area.
 Users can save liked places and view them seperately.
-It relies heavily upon the travel advisor API from rapid api, the Google Maps JavaSCript API and Google Places API
-- https://rapidapi.com/apidojo/api/travel-advisor/
+
+It relies heavily upon the following API's:
+- Travel advisor API from rapid api (https://rapidapi.com/apidojo/api/travel-advisor/)
+- Google Maps JavaScript API 
+- Google Places API
 
 
 
