@@ -14,10 +14,10 @@ export default makeStyles((theme) => ({
         height: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#47cfb0'
     },
     container: {
-        padding: '25px', background: '#fff',
+        padding: '25px', background: '#fff', paddingTop: '0'
     },
     darkModeContainer: {
-        padding: '25px', background: '#2C2C2C', color: '#fff'
+        padding: '25px', background: '#2C2C2C', color: '#fff', paddingTop: '0'
     },
     marginBottom: {
         marginBottom: '30px',
