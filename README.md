@@ -2,6 +2,9 @@
 This is the repository that will be used for the service oriented application project for IFT 401 and 402. 
 This repo is for group 35 consisting of Zac Siegel, Joe Cheng and Sanil Kumar.
 
+# Live Demo
+- https://trip-tips.netlify.app/
+
 # Capstone Travel Advisor web app
 This repository is for a travel advisor capstone project.
 The goal of this project is to create a web app that users can search for locations on and view the businesses available in that area.
