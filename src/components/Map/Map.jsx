@@ -16,7 +16,7 @@ const Map = ({ darkMode, setCoordinates, setBounds, coordinates, places, setChil
 		
 		<div className={classes.mapContainer}>
 			<GoogleMapReact
-				bootstrapURLKeys={{ key: "AIzaSyCbVTsRTIDBr_CQSN9Z7d1eDsHdxXaDkT4" }}
+				bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
 				defaultCenter={coordinates}
 				center={coordinates}
 				defaultZoom={12}
@@ -60,11 +60,6 @@ const Map = ({ darkMode, setCoordinates, setBounds, coordinates, places, setChil
 						</div>
 					);
 				})}
-				{/* {weatherData?.list?.map((data, i) => (
-					<div key={i} lat={data[0].lat} lng={data[0].lon}>
-						<img alt={data[0].weather.description} src={`https://www.weatherbit.io/static/img/icons/${data[0].weather.icon}.png`}/>
-					</div>
-				))} */}
 			</GoogleMapReact>
 		</div>
 	);

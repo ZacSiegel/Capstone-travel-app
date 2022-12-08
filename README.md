@@ -43,3 +43,8 @@ Functionality updated for main page.
 Functionality updated for main page
 - Dark mode completed for app. Users can toggle between dark mode and light mode using a switch in the header
 - Implemented like functionality for places. When a user likes a restaurant, hotel or attraction, that place gets saved in local storage within the browser. The user can then view saved places using a switch labeled "liked places". 
+
+
+12/08/22
+- Added .env file to protect API keys
+- Also added new styling for MUI switches to fit color theme

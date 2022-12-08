@@ -20,13 +20,14 @@ export const getPlacesData = async (type, bounds) => {
                 bl_longitude: sw.lng,
                 tr_longitude: ne.lng,
                 tr_latitude: ne.lat,
+                // dummy coords
                 // bl_latitude: '11.847676',
                 // bl_longitude: '108.473209',
                 // tr_longitude: '109.149359',
                 // tr_latitude: '12.838442',
             },
             headers: {
-                'X-RapidAPI-Key': 'd233c9fd53mshf8795848c0ac9d2p1b5628jsn9065885eb5f7',
+                'X-RapidAPI-Key': process.env.REACT_APP_TRAVEL_ADVISOR_API_KEY,
                 'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
             }
         });
@@ -39,16 +40,7 @@ export const getPlacesData = async (type, bounds) => {
     }
 }
 
-// export const getWeatherData = async () => {
-//     try {
-//         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=hercules&units=imperial&appid=0d8e3f5586eddf8425d1eb952e4b5993`)
-//         const data = await response.json()
-//         return data
-        
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
+
 
 
 
