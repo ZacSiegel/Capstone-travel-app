@@ -48,3 +48,7 @@ Functionality updated for main page
 12/08/22
 - Added .env file to protect API keys
 - Also added new styling for MUI switches to fit color theme
+
+12/14/22
+- Added new custom filter feature for restaurants
+- Users can enter restaurant tags to filter restaurants by types of food served
