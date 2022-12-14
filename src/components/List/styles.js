@@ -25,5 +25,31 @@ export default makeStyles((theme) => ({
     list: {
         height: '75vh', overflow: 'auto',
     },
-   
+   filterRestaurantsWrapper:{
+       marginBottom: '1rem', marginTop: '1rem', display: 'flex', color: '#000'
+   },
+   filterRestaurantsWrapperDarkMode:{
+         marginBottom: '1rem', marginTop: '1rem', display: 'flex', color: '#fff'
+    },
+
+    darkModeTextField: {
+         color: '#fff !important', width: '90%'
+    },
+    lightModeTextField: {
+        color: '#000', width: '90%'
+    },
+    searchBtnDark: {
+        color: '#47cfb0' 
+    },
+    searchBtnLight: {
+        color: '#000'
+    },
+    darkModeChip: {
+        color: '#fff !important', background: '#47cfb0', marginBottom: '0.5rem'
+    },
+    lightModeChip: {
+        color: '#000 !important', background: '#47cfb0', marginBottom: '0.5rem'
+    },
+
+
 }));

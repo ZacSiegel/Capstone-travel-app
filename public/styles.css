@@ -72,3 +72,27 @@ body::-webkit-scrollbar-track {
 .lightmode-background{
     background-color: #fff !important;
 }
+
+.filter-restaurants-wrapper{
+  margin: 1rem 0;
+  display: flex;
+}
+
+/* .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+  color: #fff !important;
+} */
+
+.makeStyles-darkModeChip-23 .MuiChip-deleteIcon {
+  color: #fff !important;
+
+}
+
+/* .Mui-focused{
+  color: #26c5a0 !important;
+  border-color: ;
+} */
+/* .makeStyles-darkModeTextField-19 label{
+  color: #13b18c !important;
+} */
+
+

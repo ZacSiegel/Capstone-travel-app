@@ -9,13 +9,19 @@ import {
 	Select,
 } from "@material-ui/core";
 import useStyles from "./styles";
+import { alpha, styled } from '@mui/material/styles';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 
 import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
-const List = ({ likedPlaces, setLikedPlaces, darkMode, places, childClicked, isLoading, type, setType, rating, setRating }) => {
+const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFilteredRestaurants, likedPlaces, setLikedPlaces, darkMode, places, childClicked, isLoading, type, setType, rating, setRating }) => {
 	const classes = useStyles();
 
 	// this will print something more meaningful such as childClicked: 5
@@ -23,7 +29,7 @@ const List = ({ likedPlaces, setLikedPlaces, darkMode, places, childClicked, isL
 	// Doing like this may just print value to the console with no context
 	// console.log(childClicked);
 	const [showLikedPlaces, setShowLikedPlaces] = useState(false);
-
+	const [restaurantTag, setRestaurantTag] = useState('');
 	// This function gets the elements index number to be used for scrolling to it in the place details
 	const [elRefs, setElRefs] = useState([]);
 	useEffect(() => {
@@ -33,12 +39,110 @@ const List = ({ likedPlaces, setLikedPlaces, darkMode, places, childClicked, isL
 		setElRefs(refs);
 	}, [type, places]);
 
-	// console.log(type);
-	// console.log(places);
 
-	// const loadLikedPlaces = () => {
-	// 	console.log(likedPlaces)
-	// }
+	const CssTextField = styled(TextField)({
+		'& label.Mui-focused': {
+			color: '#26c5a0',
+		},
+		'& .MuiInput-underline:after': {
+			borderBottomColor: '#26c5a0',
+		},
+		'& .MuiOutlinedInput-root': {
+			'& fieldset': {
+				borderColor: '#029b77',
+			},
+			'&:hover fieldset': {
+				borderColor: '#26c5a0',
+			},
+			'&.Mui-focused fieldset': {
+				borderColor: '#029b77',
+			},
+		},
+	});
+
+
+	// useEffect here is used to determine if the filtered restaurants should be shown
+	// based on the type of place selected
+	// if they type of place is changed to attraction or hotel, it resets this
+	useEffect(() => {
+		if (type !== 'restaurants') {
+			setFilteredRestaurants([])
+			setShowRestaurants(false)
+		} else if (type === 'restaurants') {
+			setShowRestaurants(true)
+		}
+	}, [type])
+
+
+	// filters restaurants based on the tag entered
+	const filterRestaurants = () => {
+		let filtered = []
+		let tag = restaurantTag.toLowerCase()
+		for (let place of places) {
+			place.cuisine.forEach(element => {
+				if (element.name.toLowerCase().includes(tag)) {
+					console.log(element)
+					filtered.push(place)
+				}
+			});
+		}
+		setFilteredRestaurants(filtered)
+		// console.log(filtered)
+	}
+
+	// deletes restaurant chip tag and resets filtered restaurants
+	const handleDelete = () => {
+		setRestaurantTag('')
+		setFilteredRestaurants([])
+	}
+
+
+	// renders the list of places based on one of 3 conditions:
+	// 1. if the showLikedPlaces state is true, it will render the liked places
+	// 2. if the showLikedPlaces state is false, and there is a filter applied, it will render the filtered restaurants
+	// 3. if the showLikedPlaces state is false, and there is no filter applied, it will render all places loaded from api
+	const handleRender = () => {
+		if (showLikedPlaces) {
+			return likedPlaces.map((place, i) => (
+				<Grid ref={elRefs[i]} item key={i} xs={12}>
+					<PlaceDetails
+						place={place}
+						selected={Number(childClicked) === i}
+						refProp={elRefs[i]}
+					/>
+				</Grid>
+			));
+		} else if (!showLikedPlaces && filteredRestaurants.length > 0 && type === 'restaurants') {
+			return filteredRestaurants.map((place, i) => (
+				<Grid ref={elRefs[i]} item key={i} xs={12}>
+					<PlaceDetails
+						place={place}
+						selected={Number(childClicked) === i}
+						refProp={elRefs[i]}
+					/>
+				</Grid>
+			));
+		} else {
+			return (
+				places?.map((place, i) => {
+					return (
+						<Grid ref={elRefs[i]} item key={i} xs={12}>
+							<PlaceDetails
+								likedPlaces={likedPlaces}
+								setLikedPlaces={setLikedPlaces}
+								darkMode={darkMode}
+								place={place}
+								selected={Number(childClicked) === i}
+								refProp={elRefs[i]}
+							/>
+						</Grid>
+					);
+				})
+			)
+		}
+	}
+
+
 
 	return (
 		<div className={darkMode ? classes.darkModeContainer : classes.container}>
@@ -78,40 +182,124 @@ const List = ({ likedPlaces, setLikedPlaces, darkMode, places, childClicked, isL
 							label="Liked places"
 							onChange={() => setShowLikedPlaces(!showLikedPlaces)}
 						/>
+						{showRestaurants ?
+							<div className={darkMode ? classes.filterRestaurantsWrapperDarkMode : classes.filterRestaurantsWrapper}>
+								<TextField
+									className={darkMode ? classes.darkModeTextField : classes.lightModeTextField}
+									margin="normal"
+									id="outlined-basic"
+									label="Restaurant tag"
+									variant="outlined"
+									onChange={(e) => setRestaurantTag(e.target.value)}
+
+								/>
+								<IconButton aria-label="add an alarm">
+									<SearchIcon className={darkMode ? classes.searchBtnDark : classes.searchBtnLight} onClick={filterRestaurants} />
+								</IconButton>
+							</div>
+							: null
+						}
+
+						{filteredRestaurants.length > 0 && restaurantTag !== '' ?
+							<Stack direction="row" spacing={1}>
+								<Chip
+								className={darkMode ? classes.darkModeChip : classes.lightModeChip}
+									label={restaurantTag}
+									onDelete={handleDelete}
+									variant="outlined"
+								/>
+							</Stack>
+							: null
+						}
+
+
 					</div>
 					{/* </FormGroup> */}
 					<Grid container spacing={3} className={classes.list}>
-						{showLikedPlaces ?
+						{
+							isLoading ? null : handleRender()
+						}
+						{/* {filteredRestaurants.length > 0 ?
+							filteredRestaurants.map((place, i) => {
+								return (
+									<Grid ref={elRefs[i]} item key={i} xs={12}>
+										<PlaceDetails
+											likedPlaces={likedPlaces}
+											setLikedPlaces={setLikedPlaces}
+											darkMode={darkMode}
+											place={place}
+											selected={Number(childClicked) === i}
+											refProp={elRefs[i]}
+										/>
+									</Grid>
 
-							likedPlaces.map((place, i) => {
-								return (
-									<Grid ref={elRefs[i]} item key={i} xs={12}>
-										<PlaceDetails
-											likedPlaces={likedPlaces}
-											setLikedPlaces={setLikedPlaces}
-											darkMode={darkMode}
-											place={place}
-											selected={Number(childClicked) === i}
-											refProp={elRefs[i]}
-										/>
-									</Grid>
-								);
-							})
-							:
-							places?.map((place, i) => {
-								return (
-									<Grid ref={elRefs[i]} item key={i} xs={12}>
-										<PlaceDetails
-											likedPlaces={likedPlaces}
-											setLikedPlaces={setLikedPlaces}
-											darkMode={darkMode}
-											place={place}
-											selected={Number(childClicked) === i}
-											refProp={elRefs[i]}
-										/>
-									</Grid>
-								);
-							})}
+								)
+							}) : showLikedPlaces ?
+
+									likedPlaces.map((place, i) => {
+										return (
+											<Grid ref={elRefs[i]} item key={i} xs={12}>
+												<PlaceDetails
+													likedPlaces={likedPlaces}
+													setLikedPlaces={setLikedPlaces}
+													darkMode={darkMode}
+													place={place}
+													selected={Number(childClicked) === i}
+													refProp={elRefs[i]}
+												/>
+											</Grid>
+										);
+									})
+									:
+									places?.map((place, i) => {
+										return (
+											<Grid ref={elRefs[i]} item key={i} xs={12}>
+												<PlaceDetails
+													likedPlaces={likedPlaces}
+													setLikedPlaces={setLikedPlaces}
+													darkMode={darkMode}
+													place={place}
+													selected={Number(childClicked) === i}
+													refProp={elRefs[i]}
+												/>
+											</Grid>
+										);
+									})
+						} */}
+
+
+						{/* {
+							showLikedPlaces ?
+
+								likedPlaces.map((place, i) => {
+									return (
+										<Grid ref={elRefs[i]} item key={i} xs={12}>
+											<PlaceDetails
+												likedPlaces={likedPlaces}
+												setLikedPlaces={setLikedPlaces}
+												darkMode={darkMode}
+												place={place}
+												selected={Number(childClicked) === i}
+												refProp={elRefs[i]}
+											/>
+										</Grid>
+									);
+								})
+								:
+								places?.map((place, i) => {
+									return (
+										<Grid ref={elRefs[i]} item key={i} xs={12}>
+											<PlaceDetails
+												likedPlaces={likedPlaces}
+												setLikedPlaces={setLikedPlaces}
+												darkMode={darkMode}
+												place={place}
+												selected={Number(childClicked) === i}
+												refProp={elRefs[i]}
+											/>
+										</Grid>
+									);
+								})} */}
 					</Grid>
 				</>
 			)}
