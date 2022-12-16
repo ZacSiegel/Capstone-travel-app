@@ -1,6 +1,4 @@
 # README
-This is the repository that will be used for the service oriented application project for IFT 401 and 402. 
-This repo is for group 35 consisting of Zac Siegel, Joe Cheng and Sanil Kumar.
 
 # Live Demo
 - https://trip-tips.netlify.app/
@@ -52,3 +50,7 @@ Functionality updated for main page
 12/14/22
 - Added new custom filter feature for restaurants
 - Users can enter restaurant tags to filter restaurants by types of food served
+
+
+12/15/22
+- Began working on refactor to incorporate context API for global state management.

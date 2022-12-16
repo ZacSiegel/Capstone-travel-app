@@ -28,7 +28,7 @@ const PlaceDetails = ({ likedPlaces, setLikedPlaces, darkMode, place, selected, 
 	}
 
 	const removePlace = () => {
-		// console.log(place)
+		console.log(likedPlaces)
 		const filterSavedPlaces = likedPlaces.filter((savedPlace) => savedPlace.name !== place.name)
 		setLikedPlaces(filterSavedPlaces)
 	}

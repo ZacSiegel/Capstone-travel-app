@@ -9,27 +9,24 @@ import useStyles from "./styles";
 import mapLightModeStyles from '../../mapLightModeStyles'
 import mapDarkModeStyles from "../../mapDarkModeStyles";
 
+// context api for state values
+import { useGlobalContext } from "../../context";
+
 import MaterialUISwitch from "./darkModeSwitch";
 
 const Header = ({ darkMode, setDarkMode, setCoordinates }) => {
     const classes = useStyles();
     const [autocomplete, setAutocomplete] = useState(null);
-
+    const {setShowLikedPlaces} = useGlobalContext();
     const onLoad = (autoC) => {
         setAutocomplete(autoC)
     }
-    // useEffect(() => {
-    //     if (darkMode) {
-    //         setMapStyle(mapDarkModeStyles)
-    //     } else {
-    //         setMapStyle(mapLightModeStyles)
-    //     }
-    // }, [darkMode])
 
     const onPlaceChanged = () => {
         const lat = autocomplete.getPlace().geometry.location.lat();
         const lng = autocomplete.getPlace().geometry.location.lng();
         setCoordinates({ lat, lng })
+        setShowLikedPlaces(false)
     }
 
     return (

@@ -3,6 +3,9 @@ import { CssBaseline, Grid } from "@material-ui/core";
 
 import { getPlacesData } from "./api";
 
+// context api for state values
+import { useGlobalContext } from "./context";
+
 //Components
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
@@ -13,22 +16,51 @@ import mapLightModeStyles from './mapLightModeStyles'
 import mapDarkModeStyles from "./mapDarkModeStyles";
 
 const App = () => {
-	const [places, setPlaces] = useState([]);
-	const [filteredPlaces, setFilteredPlaces] = useState([]);
-	const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-	const [coordinates, setCoordinates] = useState({});
-	const [bounds, setBounds] = useState(null);
-	const [showRestaurants, setShowRestaurants] = useState(true);
+	// const [places, setPlaces] = useState([]);
+	// const [filteredPlaces, setFilteredPlaces] = useState([]);
+	// const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+	// const [coordinates, setCoordinates] = useState({});
+	// const [bounds, setBounds] = useState(null);
+	// const [showRestaurants, setShowRestaurants] = useState(true);
+
+	const { 
+		places,
+		setPlaces,
+		filteredPlaces,
+		setFilteredPlaces,
+		filteredRestaurants,
+		setFilteredRestaurants,
+		coordinates,
+		setCoordinates,
+		bounds,
+		setBounds,
+		showRestaurants,
+		setShowRestaurants,
+		darkMode,
+		setDarkMode,
+		mapStyle,
+		setMapStyle,
+		childClicked,
+		setChildClicked,
+		isLoading,
+		setIsLoading,
+		type,
+		setType,
+		rating,
+		setRating
+	 } = useGlobalContext();
+
+
 
 	// dark mode styles
-	const [darkMode, setDarkMode] = useState(false)
-	const [mapStyle, setMapStyle] = useState(mapLightModeStyles);
+	// const [darkMode, setDarkMode] = useState(false)
+	// const [mapStyle, setMapStyle] = useState(mapLightModeStyles);
 
-	const [childClicked, setChildClicked] = useState(null);
-	const [isLoading, setIsLoading] = useState(false);
+	// const [childClicked, setChildClicked] = useState(null);
+	// const [isLoading, setIsLoading] = useState(false);
 
-	const [type, setType] = useState("restaurants");
-	const [rating, setRating] = useState("0");
+	// const [type, setType] = useState("restaurants");
+	// const [rating, setRating] = useState("0");
 
 
 	const [likedPlaces, setLikedPlaces] = useState(() => {
@@ -47,7 +79,7 @@ const App = () => {
 	}
 
 
-	console.log(places)
+	console.log(likedPlaces)
 
 
 

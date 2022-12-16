@@ -21,6 +21,8 @@ import Stack from '@mui/material/Stack';
 
 import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
+import { useGlobalContext } from "../../context";
+
 const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFilteredRestaurants, likedPlaces, setLikedPlaces, darkMode, places, childClicked, isLoading, type, setType, rating, setRating }) => {
 	const classes = useStyles();
 
@@ -28,8 +30,14 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 	// console.log({ childClicked });
 	// Doing like this may just print value to the console with no context
 	// console.log(childClicked);
-	const [showLikedPlaces, setShowLikedPlaces] = useState(false);
-	const [restaurantTag, setRestaurantTag] = useState('');
+	// const [showLikedPlaces, setShowLikedPlaces] = useState(false);
+	// const [restaurantTag, setRestaurantTag] = useState('');
+	const { showLikedPlaces, setShowLikedPlaces,
+		restaurantTag, setRestaurantTag,
+	} = useGlobalContext();
+	
+
+
 	// This function gets the elements index number to be used for scrolling to it in the place details
 	const [elRefs, setElRefs] = useState([]);
 	useEffect(() => {
@@ -38,27 +46,6 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 			.map((_, i) => elRefs[i] || createRef());
 		setElRefs(refs);
 	}, [type, places]);
-
-
-	const CssTextField = styled(TextField)({
-		'& label.Mui-focused': {
-			color: '#26c5a0',
-		},
-		'& .MuiInput-underline:after': {
-			borderBottomColor: '#26c5a0',
-		},
-		'& .MuiOutlinedInput-root': {
-			'& fieldset': {
-				borderColor: '#029b77',
-			},
-			'&:hover fieldset': {
-				borderColor: '#26c5a0',
-			},
-			'&.Mui-focused fieldset': {
-				borderColor: '#029b77',
-			},
-		},
-	});
 
 
 	// useEffect here is used to determine if the filtered restaurants should be shown
@@ -106,6 +93,8 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 			return likedPlaces.map((place, i) => (
 				<Grid ref={elRefs[i]} item key={i} xs={12}>
 					<PlaceDetails
+					likedPlaces={likedPlaces}
+					setLikedPlaces={setLikedPlaces}
 						place={place}
 						selected={Number(childClicked) === i}
 						refProp={elRefs[i]}
@@ -123,6 +112,7 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 				</Grid>
 			));
 		} else {
+			setShowLikedPlaces(false)
 			return (
 				places?.map((place, i) => {
 					return (
@@ -203,7 +193,7 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 						{filteredRestaurants.length > 0 && restaurantTag !== '' ?
 							<Stack direction="row" spacing={1}>
 								<Chip
-								className={darkMode ? classes.darkModeChip : classes.lightModeChip}
+									className={darkMode ? classes.darkModeChip : classes.lightModeChip}
 									label={restaurantTag}
 									onDelete={handleDelete}
 									variant="outlined"
