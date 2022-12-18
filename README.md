@@ -1,18 +1,25 @@
 # README
 
 # Live Demo
+- Allow the browser to use your current location or the map will not load upon the initial render.
+- If the users location is not shared, type a city into the search bar to select for the first map render.
 - https://trip-tips.netlify.app/
 
 # Capstone Travel Advisor web app
-This repository is for a travel advisor capstone project.
+This repository is for a trip advisor capstone project.
 The goal of this project is to create a web app that users can search for locations on and view the businesses available in that area.
+Users have numerous means of filtering places that are shown
 Users can save liked places and view them seperately.
+App features a dark mode
 
 It relies heavily upon the following API's:
 - Travel advisor API from rapid api (https://rapidapi.com/apidojo/api/travel-advisor/)
 - Google Maps JavaScript API 
 - Google Places API
 
+# Note on hotels filter option
+12/17/22
+- There is a bug with the travel advisor API when choosing hotels as an option. For some reason, sometimes the GET request works and other times it does not. The method by which the response is obtained is through boundary latitude and longitude. This method is deprecated according to the api docs but still works as intended for restaurants and attractions. 
 
 
 09/04/22
@@ -54,3 +61,6 @@ Functionality updated for main page
 
 12/15/22
 - Began working on refactor to incorporate context API for global state management.
+
+12/17/22
+- Further work done on context api refactoring.

@@ -16,12 +16,6 @@ import mapLightModeStyles from './mapLightModeStyles'
 import mapDarkModeStyles from "./mapDarkModeStyles";
 
 const App = () => {
-	// const [places, setPlaces] = useState([]);
-	// const [filteredPlaces, setFilteredPlaces] = useState([]);
-	// const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-	// const [coordinates, setCoordinates] = useState({});
-	// const [bounds, setBounds] = useState(null);
-	// const [showRestaurants, setShowRestaurants] = useState(true);
 
 	const { 
 		places,
@@ -49,19 +43,6 @@ const App = () => {
 		rating,
 		setRating
 	 } = useGlobalContext();
-
-
-
-	// dark mode styles
-	// const [darkMode, setDarkMode] = useState(false)
-	// const [mapStyle, setMapStyle] = useState(mapLightModeStyles);
-
-	// const [childClicked, setChildClicked] = useState(null);
-	// const [isLoading, setIsLoading] = useState(false);
-
-	// const [type, setType] = useState("restaurants");
-	// const [rating, setRating] = useState("0");
-
 
 	const [likedPlaces, setLikedPlaces] = useState(() => {
 		const likedPlaces = JSON.parse(localStorage.getItem('likedPlaces'));

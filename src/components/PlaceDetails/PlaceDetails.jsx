@@ -14,7 +14,6 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import Rating from "@material-ui/lab/Rating";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
-import NotInterestedIcon from '@mui/icons-material/NotInterested';
 import useStyles from "./styles";
 
 const PlaceDetails = ({ likedPlaces, setLikedPlaces, darkMode, place, selected, refProp }) => {
@@ -111,7 +110,6 @@ const PlaceDetails = ({ likedPlaces, setLikedPlaces, darkMode, place, selected, 
 						<ThumbUpOffAltIcon
 							className={darkMode ? classes.darkLike : classes.lightLike}
 							fontSize="small" /> &nbsp; <span className={darkMode ? classes.darkLike : classes.lightLike}>Like &nbsp;</span>
-						{/* {post.likeCount} */}
 					</Button>
 					<Button
 						size="small"
@@ -121,7 +119,6 @@ const PlaceDetails = ({ likedPlaces, setLikedPlaces, darkMode, place, selected, 
 						<ThumbDownOffAltIcon
 							className={darkMode ? classes.darkLike : classes.lightLike}
 							fontSize="small" /> &nbsp; <span className={darkMode ? classes.darkLike : classes.lightLike}>Remove &nbsp;</span>
-						{/* {post.likeCount} */}
 					</Button>
 				</CardActions>
 				

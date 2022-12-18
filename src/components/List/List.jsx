@@ -35,7 +35,7 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 	const { showLikedPlaces, setShowLikedPlaces,
 		restaurantTag, setRestaurantTag,
 	} = useGlobalContext();
-	
+
 
 
 	// This function gets the elements index number to be used for scrolling to it in the place details
@@ -93,8 +93,8 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 			return likedPlaces.map((place, i) => (
 				<Grid ref={elRefs[i]} item key={i} xs={12}>
 					<PlaceDetails
-					likedPlaces={likedPlaces}
-					setLikedPlaces={setLikedPlaces}
+						likedPlaces={likedPlaces}
+						setLikedPlaces={setLikedPlaces}
 						place={place}
 						selected={Number(childClicked) === i}
 						refProp={elRefs[i]}
@@ -187,10 +187,12 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 									<SearchIcon className={darkMode ? classes.searchBtnDark : classes.searchBtnLight} onClick={filterRestaurants} />
 								</IconButton>
 							</div>
-							: null
+							: 
+							null
 						}
 
-						{filteredRestaurants.length > 0 && restaurantTag !== '' ?
+						{filteredRestaurants.length > 0 && restaurantTag !== ''
+							?
 							<Stack direction="row" spacing={1}>
 								<Chip
 									className={darkMode ? classes.darkModeChip : classes.lightModeChip}
@@ -199,7 +201,8 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 									variant="outlined"
 								/>
 							</Stack>
-							: null
+							:
+							null
 						}
 
 
@@ -209,87 +212,6 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 						{
 							isLoading ? null : handleRender()
 						}
-						{/* {filteredRestaurants.length > 0 ?
-							filteredRestaurants.map((place, i) => {
-								return (
-									<Grid ref={elRefs[i]} item key={i} xs={12}>
-										<PlaceDetails
-											likedPlaces={likedPlaces}
-											setLikedPlaces={setLikedPlaces}
-											darkMode={darkMode}
-											place={place}
-											selected={Number(childClicked) === i}
-											refProp={elRefs[i]}
-										/>
-									</Grid>
-
-								)
-							}) : showLikedPlaces ?
-
-									likedPlaces.map((place, i) => {
-										return (
-											<Grid ref={elRefs[i]} item key={i} xs={12}>
-												<PlaceDetails
-													likedPlaces={likedPlaces}
-													setLikedPlaces={setLikedPlaces}
-													darkMode={darkMode}
-													place={place}
-													selected={Number(childClicked) === i}
-													refProp={elRefs[i]}
-												/>
-											</Grid>
-										);
-									})
-									:
-									places?.map((place, i) => {
-										return (
-											<Grid ref={elRefs[i]} item key={i} xs={12}>
-												<PlaceDetails
-													likedPlaces={likedPlaces}
-													setLikedPlaces={setLikedPlaces}
-													darkMode={darkMode}
-													place={place}
-													selected={Number(childClicked) === i}
-													refProp={elRefs[i]}
-												/>
-											</Grid>
-										);
-									})
-						} */}
-
-
-						{/* {
-							showLikedPlaces ?
-
-								likedPlaces.map((place, i) => {
-									return (
-										<Grid ref={elRefs[i]} item key={i} xs={12}>
-											<PlaceDetails
-												likedPlaces={likedPlaces}
-												setLikedPlaces={setLikedPlaces}
-												darkMode={darkMode}
-												place={place}
-												selected={Number(childClicked) === i}
-												refProp={elRefs[i]}
-											/>
-										</Grid>
-									);
-								})
-								:
-								places?.map((place, i) => {
-									return (
-										<Grid ref={elRefs[i]} item key={i} xs={12}>
-											<PlaceDetails
-												likedPlaces={likedPlaces}
-												setLikedPlaces={setLikedPlaces}
-												darkMode={darkMode}
-												place={place}
-												selected={Number(childClicked) === i}
-												refProp={elRefs[i]}
-											/>
-										</Grid>
-									);
-								})} */}
 					</Grid>
 				</>
 			)}
