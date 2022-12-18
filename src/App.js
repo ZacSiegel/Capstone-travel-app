@@ -97,8 +97,6 @@ const App = () => {
 	useEffect(() => {
 		if (bounds) {
 			setIsLoading(true);
-
-
 			getPlacesData(type, bounds).then((data) => {
 				setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
 				setFilteredPlaces([]);
@@ -135,13 +133,7 @@ const App = () => {
 				</Grid>
 				<Grid item xs={12} md={8}>
 					<Map
-						darkMode={darkMode}
-						setCoordinates={setCoordinates}
-						setBounds={setBounds}
-						coordinates={coordinates}
 						places={filteredPlaces.length ? filteredPlaces : places}
-						setChildClicked={setChildClicked}
-						mapStyle={mapStyle}
 					/>
 				</Grid>
 			</Grid>

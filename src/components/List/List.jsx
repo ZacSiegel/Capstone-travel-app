@@ -23,17 +23,20 @@ import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
 import { useGlobalContext } from "../../context";
 
-const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFilteredRestaurants, likedPlaces, setLikedPlaces, darkMode, places, childClicked, isLoading, type, setType, rating, setRating }) => {
+const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFilteredRestaurants, likedPlaces, setLikedPlaces, places, childClicked}) => {
 	const classes = useStyles();
 
-	// this will print something more meaningful such as childClicked: 5
-	// console.log({ childClicked });
-	// Doing like this may just print value to the console with no context
-	// console.log(childClicked);
-	// const [showLikedPlaces, setShowLikedPlaces] = useState(false);
-	// const [restaurantTag, setRestaurantTag] = useState('');
-	const { showLikedPlaces, setShowLikedPlaces,
-		restaurantTag, setRestaurantTag,
+	const { 
+		showLikedPlaces, 
+		setShowLikedPlaces,
+		restaurantTag,
+		setRestaurantTag,
+		darkMode,
+		isLoading, 
+		type,
+		setType,
+		rating,
+		setRating,
 	} = useGlobalContext();
 
 
@@ -74,7 +77,6 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 			});
 		}
 		setFilteredRestaurants(filtered)
-		// console.log(filtered)
 	}
 
 	// deletes restaurant chip tag and resets filtered restaurants

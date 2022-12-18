@@ -6,14 +6,29 @@ import Rating from "@material-ui/lab/Rating";
 
 import useStyles from "./styles";
 
+// context api for state values
+import { useGlobalContext } from "../../context";
 
-const Map = ({ darkMode, setCoordinates, setBounds, coordinates, places, setChildClicked, mapStyle }) => {
+
+const Map = ({ places }) => {
+
+
+	const {
+		darkMode,
+		setCoordinates,
+		setBounds,
+		coordinates,
+		setChildClicked,
+		mapStyle,
+	} = useGlobalContext();
+
+
 	const classes = useStyles();
 	// switches to mobile view when viewport is <= 600px
 	const isDesktop = useMediaQuery("(min-width:600px)");
 	// const coordinates = { lat: 40.73, lng: -93.93 };
 	return (
-		
+
 		<div className={classes.mapContainer}>
 			<GoogleMapReact
 				bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
@@ -21,7 +36,7 @@ const Map = ({ darkMode, setCoordinates, setBounds, coordinates, places, setChil
 				center={coordinates}
 				defaultZoom={12}
 				margin={[50, 50, 50, 50]}
-				options={{disableDefaultUI: true, zoomControl: true, styles: mapStyle}}
+				options={{ disableDefaultUI: true, zoomControl: true, styles: mapStyle }}
 				onChange={(e) => {
 					// console.log(e);
 					setCoordinates({ lat: e.center.lat, lng: e.center.lng });
