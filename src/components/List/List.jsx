@@ -23,7 +23,7 @@ import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
 import { useGlobalContext } from "../../context";
 
-const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFilteredRestaurants, likedPlaces, setLikedPlaces, places, childClicked}) => {
+const List = ({ filteredRestaurants, setFilteredRestaurants, likedPlaces, setLikedPlaces, places, childClicked}) => {
 	const classes = useStyles();
 
 	const { 
@@ -37,6 +37,8 @@ const List = ({ showRestaurants, setShowRestaurants, filteredRestaurants, setFil
 		setType,
 		rating,
 		setRating,
+		showRestaurants,
+		setShowRestaurants,
 	} = useGlobalContext();
 
 
