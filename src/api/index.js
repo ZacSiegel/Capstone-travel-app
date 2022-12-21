@@ -1,15 +1,5 @@
 import axios from "axios";
 
-// const URL = 'https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary';
-
-// const options = 
-
-// axios.request(options).then(function (response) {
-//     console.log(response.data);
-// }).catch(function (error) {
-//     console.error(error);
-// });
-
 export const getPlacesData = async (type, bounds) => {
     let {sw, ne} = bounds;
     try {
