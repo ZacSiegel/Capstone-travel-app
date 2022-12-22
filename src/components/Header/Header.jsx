@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Autocomplete } from "@react-google-maps/api";
 import { AppBar, Toolbar, Typography, InputBase, Box } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 // import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import useStyles from "./styles";
-
-// map styles
-import mapLightModeStyles from '../../mapLightModeStyles'
-import mapDarkModeStyles from "../../mapDarkModeStyles";
 
 // context api for state values
 import { useGlobalContext } from "../../context";

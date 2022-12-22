@@ -30,7 +30,6 @@ const App = () => {
 		setDarkMode,
 		mapStyle,
 		setMapStyle,
-		childClicked,
 		setIsLoading,
 		type,
 		rating,
@@ -107,7 +106,6 @@ const App = () => {
 						likedPlaces={likedPlaces}
 						setLikedPlaces={setLikedPlaces}
 						places={filteredPlaces.length ? filteredPlaces : places}
-						childClicked={childClicked}
 					/>
 				</Grid>
 				<Grid item xs={12} md={7}>

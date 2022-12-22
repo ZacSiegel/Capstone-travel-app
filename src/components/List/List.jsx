@@ -9,8 +9,6 @@ import {
 	Select,
 } from "@material-ui/core";
 import useStyles from "./styles";
-import { alpha, styled } from '@mui/material/styles';
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
@@ -23,10 +21,11 @@ import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
 import { useGlobalContext } from "../../context";
 
-const List = ({ filteredRestaurants, setFilteredRestaurants, likedPlaces, setLikedPlaces, places, childClicked}) => {
+const List = ({ filteredRestaurants, setFilteredRestaurants, likedPlaces, setLikedPlaces, places}) => {
 	const classes = useStyles();
 
 	const { 
+		childClicked,
 		showLikedPlaces, 
 		setShowLikedPlaces,
 		restaurantTag,
@@ -97,6 +96,7 @@ const List = ({ filteredRestaurants, setFilteredRestaurants, likedPlaces, setLik
 			return likedPlaces.map((place, i) => (
 				<Grid ref={elRefs[i]} item key={i} xs={12}>
 					<PlaceDetails
+						darkMode={darkMode}
 						likedPlaces={likedPlaces}
 						setLikedPlaces={setLikedPlaces}
 						place={place}
@@ -109,6 +109,7 @@ const List = ({ filteredRestaurants, setFilteredRestaurants, likedPlaces, setLik
 			return filteredRestaurants.map((place, i) => (
 				<Grid ref={elRefs[i]} item key={i} xs={12}>
 					<PlaceDetails
+						darkMode={darkMode}
 						place={place}
 						selected={Number(childClicked) === i}
 						refProp={elRefs[i]}
@@ -208,7 +209,6 @@ const List = ({ filteredRestaurants, setFilteredRestaurants, likedPlaces, setLik
 							:
 							null
 						}
-
 
 					</div>
 					{/* </FormGroup> */}
