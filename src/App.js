@@ -85,12 +85,13 @@ const App = () => {
 	useEffect(() => {
 		if (bounds) {
 			setIsLoading(true);
-			getPlacesData(type, bounds).then((data) => {
+			const fetchData = async () => {
+				const data = await getPlacesData(type, bounds);
 				setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
 				setFilteredPlaces([]);
-				// console.log(data);
 				setIsLoading(false);
-			});
+			};
+			fetchData();
 		}
 	}, [type, bounds]);
 
