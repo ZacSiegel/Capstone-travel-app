@@ -66,4 +66,5 @@ Most of the UI for the main/home page has been developed:
 - Further work done on context api refactoring.
 
 12/22/22
-- Refactor completed for context api integration
+- Refactor completed for context api integration.
+- Adjusted styling on restaurant tag.
