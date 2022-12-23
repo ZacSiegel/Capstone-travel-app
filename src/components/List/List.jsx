@@ -185,6 +185,7 @@ const List = ({ filteredRestaurants, setFilteredRestaurants, likedPlaces, setLik
 									id="outlined-basic"
 									label="Restaurant tag"
 									variant="outlined"
+									value={restaurantTag}
 									onChange={(e) => setRestaurantTag(e.target.value)}
 
 								/>

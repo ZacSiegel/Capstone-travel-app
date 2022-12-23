@@ -47,6 +47,7 @@ body::-webkit-scrollbar-track {
 .filter-and-liked-places-wrapper {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.5rem;
 }
 @media screen and (max-width: 768px) {
   .MuiBox-root-8 {
@@ -87,12 +88,37 @@ body::-webkit-scrollbar-track {
 
 }
 
-/* .Mui-focused{
-  color: #26c5a0 !important;
-  border-color: ;
-} */
+.Mui-focused{
+  color: #05a17d !important;
+}
 /* .makeStyles-darkModeTextField-19 label{
   color: #13b18c !important;
 } */
 
 
+/* .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+  color: #26c5a0 !important;
+} */
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input :focus{
+  color: #26c5a0 !important;
+
+}
+
+
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #26c5a0 !important;
+}
+
+.makeStyles-darkModeTextField-19 label{
+  color: #ffffffad !important;
+}
+.makeStyles-darkModeTextField-19 #outlined-basic {
+  color: #26c5a0 !important;
+}
+
+.makeStyles-darkModeTextField-19 fieldset{
+  color: #ffffffc4 !important;
+  border-color: #ffffffad !important;
+}
