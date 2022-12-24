@@ -68,3 +68,6 @@ Most of the UI for the main/home page has been developed:
 12/22/22
 - Refactor completed for context api integration.
 - Adjusted styling on restaurant tag.
+
+12/23/22
+- Styling adjusted for input fields. Still issues with dark mode styling.
