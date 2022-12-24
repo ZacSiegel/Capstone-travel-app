@@ -26,21 +26,21 @@ body::-webkit-scrollbar-track {
   + .MuiSwitch-track {
   background-color: #26c5a0 !important;
 }
-.css-ecvcn9{
+/* .css-ecvcn9{
   background-color: #26c5a0 !important;
 
-}
+} */
 .css-1gac4oh .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
   background-color: #26c5a0 !important;
 }
 
 .css-1nr2wod.Mui-checked{
   color: rgb(51, 224, 184) !important;
-  background-color: #26c5a0 !important;
+  /* background-color: #26c5a0 !important; */
 
 }
 .css-19gndve{
-  background-color: #26c5a0 !important;
+  background-color: #1E997C !important;
 
 }
 
@@ -88,9 +88,9 @@ body::-webkit-scrollbar-track {
 
 }
 
-.Mui-focused{
+/* .Mui-focused{
   color: #05a17d !important;
-}
+} */
 /* .makeStyles-darkModeTextField-19 label{
   color: #13b18c !important;
 } */
@@ -100,14 +100,14 @@ body::-webkit-scrollbar-track {
   color: #26c5a0 !important;
 } */
 
-.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input :focus{
+/* .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input :focus{
   color: #26c5a0 !important;
 
-}
+} */
 
 
 
-.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+/* .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: #26c5a0 !important;
 }
 
@@ -122,3 +122,12 @@ body::-webkit-scrollbar-track {
   color: #ffffffc4 !important;
   border-color: #ffffffad !important;
 }
+
+.css-1nr2wod.Mui-checked + .MuiSwitch-track {
+  background-color: #26c5a0 !important;
+  opacity: 0.7 !important;
+}
+
+.css-9ftkt8{
+  color: #a7a7a799;
+} */

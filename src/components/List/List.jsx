@@ -86,7 +86,6 @@ const List = ({ filteredRestaurants, setFilteredRestaurants, likedPlaces, setLik
 		setFilteredRestaurants([])
 	}
 
-
 	// renders the list of places based on one of 3 conditions:
 	// 1. if the showLikedPlaces state is true, it will render the liked places
 	// 2. if the showLikedPlaces state is false, and there is a filter applied, it will render the filtered restaurants
@@ -140,11 +139,13 @@ const List = ({ filteredRestaurants, setFilteredRestaurants, likedPlaces, setLik
 
 
 	return (
+
 		<div className={darkMode ? classes.darkModeContainer : classes.container}>
 			<Typography variant="h6">Filter by type & rating</Typography>
-			{isLoading ? (
+			{isLoading 
+			? (
 				<div className={classes.loading}>
-					<CircularProgress size="8rem" />
+					<CircularProgress color='success' size="8rem" />
 				</div>
 			) : (
 				<>
@@ -184,8 +185,9 @@ const List = ({ filteredRestaurants, setFilteredRestaurants, likedPlaces, setLik
 									margin="normal"
 									id="outlined-basic"
 									label="Restaurant tag"
-									variant="outlined"
+									variant="filled"
 									value={restaurantTag}
+									color='success'
 									onChange={(e) => setRestaurantTag(e.target.value)}
 
 								/>
