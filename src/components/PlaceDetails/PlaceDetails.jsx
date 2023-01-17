@@ -24,12 +24,15 @@ const PlaceDetails = ({ likedPlaces, setLikedPlaces, darkMode, place, selected, 
 	const savePlace = () => {
 		// console.log(place)
 		setLikedPlaces(likedPlaces => [...likedPlaces, place])
+		alert(`${place.name} added to liked places!`)
 	}
 
 	const removePlace = () => {
-		console.log(likedPlaces)
+		// console.log(likedPlaces)
 		const filterSavedPlaces = likedPlaces.filter((savedPlace) => savedPlace.name !== place.name)
 		setLikedPlaces(filterSavedPlaces)
+		alert(`${place.name} was removed from liked places.`)
+
 	}
 	
 	if (selected)

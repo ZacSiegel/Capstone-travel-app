@@ -71,3 +71,6 @@ Most of the UI for the main/home page has been developed:
 
 12/23/22
 - Styling adjusted for input fields. Still issues with dark mode styling.
+
+01/16/23
+- Added alert for when new place is liked.
